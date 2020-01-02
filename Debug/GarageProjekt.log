@@ -1,0 +1,14 @@
+﻿  GarageProjekt.cpp
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(323,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(332,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(343,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(355,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(367,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(379,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(395,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(410,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(423,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(439,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(454,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\david\source\repos\GarageProjekt\GarageProjekt.cpp(490,7): warning C4101: 'select': unreferenced local variable
+  GarageProjekt.vcxproj -> C:\Users\david\source\repos\GarageProjekt\Debug\GarageProjekt.exe
