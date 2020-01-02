@@ -24,7 +24,7 @@ protected:
 	int wheels = 0;
 public:
 	Vehicle() { }
-	Vehicle(std::string a, std::string b, int c) : regNr(a), color(b), wheels(c)
+	Vehicle(std::string a, std::string b, int c, std::string d) : regNr(a), color(b), wheels(c), vehicleType(d)
 	{ 
 
 
@@ -53,14 +53,14 @@ protected:
 	std::string electric;
 public:
 	Car() {}
-	Car(std::string regNr, std::string color, int wheels, std::string inkModel, std::string inkElectric) : Vehicle(regNr, color, wheels)
+	Car(std::string a, std::string b, int c, std::string d, std::string inkModel, std::string inkElectric) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Car";
 		model = inkModel;
 		electric = inkElectric;
 	}
 	void listVehicles() {
-		std::cout << "\n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
+		std::cout << "\n Type: " << this->vehicleType << "\n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
 			"\n Model: " << this->model << "\n Electric: " << this->electric << std::endl;
 
 	}
@@ -77,27 +77,17 @@ public:
 
 		electric = x;
 	}
-	void set_VehicleType(std::string x) 
-	{
-		vehicleType = x;
+	// void set_VehicleType(std::string x) 
+	// {
+//		vehicleType = x;
 
 
-	}
+	//}
 	void set_RegNr(std::string x)
 	{
 
 		regNr = x;
 	}
-/*	void listTypeOfVehicles() {
-
-
-
-		if (vehicleType == "Car")
-		{
-
-			std::cout << "Number of Cars in the Garage" << carCounter << std::endl;
-		}
-	*/
 };
 class Bicycle : public Vehicle
 {
@@ -107,7 +97,7 @@ protected:
 
 public:
 	Bicycle() {}
-	Bicycle(std::string regNr, std::string color, int wheels, std::string inkModel, int inkGears) : Vehicle (regNr, color, wheels)
+	Bicycle(std::string a, std::string b, int c, std::string d, std::string inkModel, int inkGears) : Vehicle (a, b, c, d)
 	{
 		vehicleType = "Bicycle";
 		model = inkModel;
@@ -115,7 +105,7 @@ public:
 	}
 
 	void listVehicles() {
-		std::cout <<  " \n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
+		std::cout << "Type: " << this->vehicleType <<  " \n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
 			"\n model: " << this->model << "\n Number of Gears: " << this->gears <<  std::endl;
 	}
 
@@ -136,7 +126,7 @@ protected:
 
 public:
 	Motorcycle() {}
-	Motorcycle(std::string regNr, std::string color, int wheels, std::string inkModel, int inkGears) : Vehicle(regNr, color, wheels)
+	Motorcycle(std::string a, std::string b, int c, std::string d, std::string inkModel, int inkGears) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Motorcycle";
 		model = inkModel;
@@ -144,7 +134,7 @@ public:
 	}
 
 	void listVehicles() {
-		std::cout << "\n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
+		std::cout << "Type: " << this->vehicleType << "\n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
 			"\n Model: " << this->model << "\n Number of Gears: " << this->gears << std::endl;
 	}
 
@@ -163,7 +153,7 @@ protected:
 
 public:
 	Truck() {}
-	Truck(std::string regNr, std::string color, int wheels, std::string inkModel, std::string inkAutomatic) : Vehicle(regNr, color, wheels)
+	Truck(std::string a, std::string b, int c, std::string d, std::string inkModel, std::string inkAutomatic) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Truck";
 		model = inkModel;
@@ -171,7 +161,7 @@ public:
 	}
 
 	void listVehicles() {
-		std::cout << "\n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
+		std::cout << "Type: " << this->vehicleType <<  "\n RegNumber: " << this->regNr << "\n Color: " << this->color << "\n Number of wheels: " << this->wheels <<
 			"\n Model: " << this->model << "\n A/M: " << this->automatic << std::endl;
 	}
 
@@ -190,7 +180,7 @@ protected:
 
 public:
 	Bus() {}
-	Bus(std::string regNr, std::string color, int wheels, std::string inkModel, int inkSeats) : Vehicle(regNr, color, wheels)
+	Bus(std::string a, std::string b, int c, std::string d, std::string inkModel, int inkSeats) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Bus";
 		model = inkModel;
@@ -198,7 +188,7 @@ public:
 	}
 
 	void listVehicles() {
-		std::cout  << " \n RegNumber: " << this->regNr  <<  " \n Color: " << this->color << " \n Number of wheels: " << this->wheels
+		std::cout  <<  "Type: " << this->vehicleType << " \n RegNumber: " << this->regNr  <<  " \n Color: " << this->color << " \n Number of wheels: " << this->wheels
 			 << " \n Model: " << this->model <<  " \n Number of seats: " << this->seats << std::endl;
 	}
 
@@ -216,11 +206,12 @@ public:
 		int wheels = 0;
 		std::string model;
 		std::string electric;
+		std::vector <Vehicle*> listGarage;
 	
 	public:
 		Garage() {}
 		Garage(std::string regNr, std::string color, int wheels, std::string inkModel, std::string inkElectric) {}
-		std::vector <Vehicle*> listGarage;
+	
 	
 		int vectorSize()
 
@@ -314,11 +305,12 @@ public:
 
 		
 		}
-		void listVehicles() {
-			std::cout << " RegNumber: " << this->regNr << " Color: " << this->color << " Number of wheels: " << this->wheels <<
+	 /*	void listVehicles() {
+			std::cout  << " RegNumber: " << this->regNr << " Color: " << this->color << " Number of wheels: " << this->wheels <<
 				" Model: " << this->model << " Electric: " << this->electric << std::endl;
 		}
-		void printVehicles(std::vector <Vehicle*> x) {
+		*/
+		/*void printVehiclesOld(std::vector <Vehicle*> x) {
 
 			for (int i = 0; i < x.size(); i++)
 			{
@@ -327,142 +319,153 @@ public:
 
 			}
 		}
-		void printAllCars(std::vector <Vehicle*> x)
-		{
-			for (int i = 0; i < x.size(); i++)
+		*/
+		void printVehicles() {
+
+			for (int i = 0; i < listGarage.size(); i++)
 			{
-				if (x[i]->get_VehicleType() == "Car")
+
+				listGarage[i]->listVehicles();
+
+			}
+		}
+		void printAllCars()
+		{
+			for (int i = 0; i < listGarage.size(); i++)
+			{
+				if (listGarage[i]->get_VehicleType() == "Car")
 				{
-					x[i]->listVehicles();
+					listGarage[i]->listVehicles();
 
 				}
 			}
 		}
-			void printAllBicycles(std::vector <Vehicle*> x)
+			void printAllBicycles()
 			{
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_VehicleType() == "Bicycle")
+					if (listGarage[i]->get_VehicleType() == "Bicycle")
 					{
 
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 					}
 				}
 			}
 
-			void printAllMotorCycles(std::vector <Vehicle*> x)
+			void printAllMotorCycles()
 				{
-					for (int i = 0; i < x.size(); i++)
+					for (int i = 0; i < listGarage.size(); i++)
 					{
-						if (x[i]->get_VehicleType() == "Motorcycle")
+						if (listGarage[i]->get_VehicleType() == "Motorcycle")
 						{
-							x[i]->listVehicles();
+							listGarage[i]->listVehicles();
 
 						}
 					}
 				}
 
-			void printAllBuses(std::vector <Vehicle*> x)
+			void printAllBuses()
 			{
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_VehicleType() == "Bus")
+					if (listGarage[i]->get_VehicleType() == "Bus")
 					{
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 
 					}
 				}
 			}
 
-			void printAllTrucks(std::vector <Vehicle*> x)
+			void printAllTrucks()
 			{
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_VehicleType() == "Truck")
+					if (listGarage[i]->get_VehicleType() == "Truck")
 					{
 
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 
 					}
 				}
 			}
 
 
-			void searchVehiclesRegNr(std::vector <Vehicle*> x, std::string y)
+			void searchVehiclesRegNr(std::string y)
 			{
 				
 
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_RegNr() == y)
+					if (listGarage[i]->get_RegNr() == y)
 					{
 						std::cout << "Found Vehicle: " << std::endl;
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 						break;
 					}
 				}
 			}
 	
-			void searchVehiclesColor(std::vector <Vehicle*> x, std::string y)
+			void searchVehiclesColor(std::string y)
 			{
 
 
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_Color() == y)
+					if (listGarage[i]->get_Color() == y)
 					{
+					
 						std::cout << "Found Vehicle: " << std::endl;
-						x[i]->listVehicles();
+					listGarage[i]->listVehicles();
 						
 					}
 				}
 			}
 
-			void searchVehiclesWheels(std::vector <Vehicle*> x, int y)
+			void searchVehiclesWheels(int y)
 			{
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_Wheels() == y)
+					if (listGarage[i]->get_Wheels() == y)
 					{
 						std::cout << "Found Vehicle: " << std::endl;
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 					
 					}
 				}
 
 
 			}
-			void searchVehiclesModel(std::vector <Vehicle*> x, std::string y)
+			void searchVehiclesModel(std::string y)
 			{
 
 
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_Model() == y)
+					if (listGarage[i]->get_Model() == y)
 					{
 						std::cout << "Found Vehicle: " << std::endl;
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 						
 					}
 				}
 			}
 
-			Vehicle* searchAndDestroy(std::vector <Vehicle*> &x, std::string y)
+			Vehicle* searchAndDestroy( std::string y)
 			{
 				
 
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
-					if (x[i]->get_RegNr() == y)
+					if (listGarage[i]->get_RegNr() == y)
 					{
 						
 						std::cout << "Found Vehicle: " << std::endl;
-						x[i]->listVehicles();
+						listGarage[i]->listVehicles();
 						
-						delete x[i];
+						delete listGarage[i];
 
 					
-						x.erase(std::remove(x.begin(), x.end(), x[i]), x.end());
+						listGarage.erase(std::remove(listGarage.begin(), listGarage.end(), listGarage[i]), listGarage.end());
 						break;
 					}
 
@@ -470,30 +473,21 @@ public:
 				return 0;
 			
 			}
-			Vehicle* destroy(std::vector <Vehicle*>& x)
+			Vehicle* destroy()
 			{
 
 
-				for (int i = 0; i < x.size(); i++)
+				for (int i = 0; i < listGarage.size(); i++)
 				{
 					
 
-						delete x[i];
+						delete listGarage[i];
 
 					}
-				 x.clear();
+				listGarage.clear();
 				return 0;
 
 				
-			}
-			void cinFail(int x)
-			{
-				if (std::cin.fail())
-				{
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-					std::cout << "Wrong! Enter a #!" << std::endl;
-				}
 			}
 
 	};
@@ -638,16 +632,16 @@ public:
 							std::cin >> choiceA;
 							std::cout << "Color: " << std::endl;
 							std::cin >> choiceB;
-							std::cout << "Number of Wheels: " << std::endl;
+							std::cout << "Number of wheels: " << std::endl;
 							std::cin >> choiceC;
 							std::cout << "Model: " << std::endl;
 							std::cin >> choiceD;
 							std::cout << "Electric? Yes/No: " << std::endl;
 							std::cin >> choiceE;
 
-							Vehicle* ptrCarOne = new Car(choiceA, choiceB, choiceC, choiceD, choiceE);
+							Vehicle* ptrCarOne = new Car(choiceA, choiceB, choiceC, "" , choiceD, choiceE);
 							a.addVehicles(ptrCarOne);
-							a.printVehicles(a.listGarage);
+							a.printVehicles();
 						}
 							  break;
 
@@ -655,34 +649,35 @@ public:
 						{
 							std::cout << "Regnr: " << std::endl;
 							std::cin >> choiceA;
-							std::cout << "Color: " << std::endl;
+							std::cout << "Color " << std::endl;
 							std::cin >> choiceB;
-							std::cout << "Number of Wheels: " << std::endl;
+							std::cout << "Number of wheels: " << std::endl;
 							std::cin >> choiceC;
 							std::cout << "Model: " << std::endl;
 							std::cin >> choiceD;
 							std::cout << "Number of gears: " << std::endl;
 							std::cin >> choiceF;
-							Vehicle* ptrBikeOne = new Bicycle(choiceA, choiceB, choiceC, choiceD, choiceF);
+
+							Vehicle* ptrBikeOne = new Bicycle(choiceA, choiceB, choiceC, "", choiceD, choiceF);
 							a.addVehicles(ptrBikeOne);
-							a.printVehicles(a.listGarage);
+							a.printVehicles();
 						}
 						break;
 						case 3:
 						{
 							std::cout << "Regnr: " << std::endl;
 							std::cin >> choiceA;
-							std::cout << "Color: " << std::endl;
+							std::cout << "Number of wheels: " << std::endl;
 							std::cin >> choiceB;
-							std::cout << "Number of Wheels: " << std::endl;
+							std::cout << "Color: " << std::endl;
 							std::cin >> choiceC;
 							std::cout << "Model: " << std::endl;
 							std::cin >> choiceD;
 							std::cout << "Number of gears: " << std::endl;
 							std::cin >> choiceF;
-							Vehicle* ptrMotorcycleOne = new Motorcycle(choiceA, choiceB, choiceC, choiceD, choiceF);
+							Vehicle* ptrMotorcycleOne = new Motorcycle( choiceA, choiceB, choiceC, "" , choiceD, choiceF);
 							a.addVehicles(ptrMotorcycleOne);
-							a.printVehicles(a.listGarage);
+							a.printVehicles();
 						}
 
 						break;
@@ -690,36 +685,37 @@ public:
 						{
 							std::cout << "Regnr: " << std::endl;
 							std::cin >> choiceA;
-							std::cout << "Color: " << std::endl;
+							std::cout << "Numbers of wheels: " << std::endl;
 							std::cin >> choiceB;
-							std::cout << "Number of Wheels: " << std::endl;
+							std::cout << "Color: " << std::endl;
 							std::cin >> choiceC;
 							std::cout << "Model: " << std::endl;
 							std::cin >> choiceD;
 							std::cout << "A/M? (Automatic or Manual) " << std::endl;
 							std::cin >> choiceE;
 
-							Vehicle* ptrTruckOne = new Truck(choiceA, choiceB, choiceC, choiceD, choiceE);
+							Vehicle* ptrTruckOne = new Truck(choiceA, choiceB, choiceC, "", choiceD, choiceE);
 							a.addVehicles(ptrTruckOne);
-							a.printVehicles(a.listGarage);
+							a.printVehicles();
 						}
+
 						break;
 						case 5:
 						{
 							std::cout << "Regnr: " << std::endl;
 							std::cin >> choiceA;
-							std::cout << "Color: " << std::endl;
-							std::cin >> choiceB;
 							std::cout << "Number of Wheels: " << std::endl;
+							std::cin >> choiceB;
+							std::cout << "Color: " << std::endl;
 							std::cin >> choiceC;
 							std::cout << "Model: " << std::endl;
 							std::cin >> choiceD;
 							std::cout << "Number of seats: " << std::endl;
 							std::cin >> choiceF;
 
-							Vehicle* ptrBusOne = new Bus(choiceA, choiceB, choiceC, choiceD, choiceF);
+							Vehicle* ptrBusOne = new Bus(choiceA, choiceB, choiceC, "", choiceD, choiceF);
 							a.addVehicles(ptrBusOne);
-							a.printVehicles(a.listGarage);
+							a.printVehicles();
 
 						}
 						default:
@@ -737,7 +733,7 @@ public:
 
 						std::cout << "\n Type the RegNr of the Vehicle you want to remove: ";
 						std::cin >> search;
-						a.searchAndDestroy(a.listGarage, search);
+						a.searchAndDestroy(search);
 
 
 					}
@@ -768,7 +764,7 @@ public:
 							std::cout << "Type RegNr: " << std::endl;
 							std::cin >> search;
 
-							a.searchVehiclesRegNr(a.listGarage, search);
+							a.searchVehiclesRegNr(search);
 
 
 						}
@@ -779,7 +775,7 @@ public:
 						{
 							std::cout << "Type color: " << std::endl;
 							std::cin >> search;
-							a.searchVehiclesColor(a.listGarage, search);
+							a.searchVehiclesColor( search);
 
 						}
 						break;
@@ -789,7 +785,7 @@ public:
 							std::cout << "Type number of wheels: " << std::endl;
 							std::cin >> numberSearch;
 
-							a.searchVehiclesWheels(a.listGarage, numberSearch);
+							a.searchVehiclesWheels( numberSearch);
 
 						}
 						case 4:
@@ -797,7 +793,7 @@ public:
 							std::cout << "Type model: " << std::endl;
 							std::cin >> search;
 
-							a.searchVehiclesModel(a.listGarage, search);
+							a.searchVehiclesModel( search);
 
 						}
 						default:
@@ -834,36 +830,36 @@ public:
 						{
 						case 1:
 						{
-							a.printAllCars(a.listGarage);
+							a.printAllCars();
 
 						}
 						break;
 						case 2:
 						{
-							a.printAllBicycles(a.listGarage);
+							a.printAllBicycles();
 
 						}
 						break;
 						case 3:
 						{
-							a.printAllMotorCycles(a.listGarage);
+							a.printAllMotorCycles();
 
 						}
 						break;
 						case 4:
 						{
-							a.printAllTrucks(a.listGarage);
+							a.printAllTrucks();
 
 						}
 						break;
 						case 5:
 						{
-							a.printAllBuses(a.listGarage);
+							a.printAllBuses();
 						}
 						break;
 						case 6:
 						{
-							a.printVehicles(a.listGarage);
+							a.printVehicles();
 
 						}
 						default:
@@ -895,7 +891,7 @@ public:
 					{
 						if (garageCreated == true)
 						{
-							a.destroy(a.listGarage);
+							a.destroy();
 							garageCreated = false;
 							std::cout << "Garage Deleted" << std::endl;
 						}

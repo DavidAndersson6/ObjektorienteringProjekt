@@ -1,0 +1,4 @@
+﻿  GarageProjekt.cpp
+C:\Users\david\Documents\GitHub\ObjektorienteringProjekt\GarageProjekt.cpp(219,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\david\Documents\GitHub\ObjektorienteringProjekt\GarageProjekt.cpp(509,7): warning C4101: 'select': unreferenced local variable
+  GarageProjekt.vcxproj -> C:\Users\david\Documents\GitHub\ObjektorienteringProjekt\x64\Debug\GarageProjekt.exe
