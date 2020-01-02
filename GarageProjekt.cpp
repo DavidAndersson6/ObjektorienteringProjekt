@@ -470,7 +470,32 @@ public:
 				return 0;
 			
 			}
-			
+			Vehicle* destroy(std::vector <Vehicle*>& x)
+			{
+
+
+				for (int i = 0; i < x.size(); i++)
+				{
+					
+
+						delete x[i];
+
+					}
+				 x.clear();
+				return 0;
+
+				
+			}
+			void cinFail(int x)
+			{
+				if (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "Wrong! Enter a #!" << std::endl;
+				}
+			}
+
 	};
 	
 
@@ -534,7 +559,7 @@ public:
 				std::cin.clear(); // clears error flags
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				std::cout << "Wrong! Enter a #!" << std::endl;
-	
+
 			}
 			else {
 				run = true;
@@ -568,324 +593,333 @@ public:
 				if (std::cin.fail())
 				{
 					std::cin.clear(); // clears error flags
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 					std::cout << "Wrong! Enter a #!" << std::endl;
-					std::cin >> selection;
+					
 				}
+				
 
-				switch (selection)
+					switch (selection)
 
-				{
-
-				case 1:
-				{
-
-					std::cout << "\n What type of Vehicle? ";
-
-					std::cout << "\n 1 - Car";
-
-					std::cout << "\n 2 - Bicycle";
-
-					std::cout << "\n 3 - Motorcycle";
-
-					std::cout << "\n 4 - Truck";
-
-					std::cout << "\n 5 - Bus";
-
-					std::cout << "\n Enter selection: ";
-
-					std::cin >> selectionTwo;
-
-					if (std::cin.fail())
 					{
-						std::cin.clear(); 
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max());
-						std::cout << "Wrong! Enter a #!" << std::endl;
+
+					case 1:
+					{
+
+						std::cout << "\n What type of Vehicle? ";
+
+						std::cout << "\n 1 - Car";
+
+						std::cout << "\n 2 - Bicycle";
+
+						std::cout << "\n 3 - Motorcycle";
+
+						std::cout << "\n 4 - Truck";
+
+						std::cout << "\n 5 - Bus";
+
+						std::cout << "\n Enter selection: ";
+
 						std::cin >> selectionTwo;
-					}
 
-					switch (selectionTwo)
-					{
-					case 1: {																															//Case 1
-						std::cout << "Regnr: " << std::endl;
-						std::cin >> choiceA;
-						std::cout << "Color: " << std::endl;
-						std::cin >> choiceB;
-						std::cout << "Number of Wheels: " << std::endl;
-						std::cin >> choiceC;
-						std::cout << "Model: " << std::endl;
-						std::cin >> choiceD;
-						std::cout << "Electric? Yes/No: " << std::endl;
-						std::cin >> choiceE;
+					
+							if (std::cin.fail())
+							{
+								std::cin.clear();
+								std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+								std::cout << "Wrong! Enter a #!" << std::endl;
+							}
+						
+						
+						switch (selectionTwo)
+						{
+						case 1: {																															//Case 1
+							std::cout << "Regnr: " << std::endl;
+							std::cin >> choiceA;
+							std::cout << "Color: " << std::endl;
+							std::cin >> choiceB;
+							std::cout << "Number of Wheels: " << std::endl;
+							std::cin >> choiceC;
+							std::cout << "Model: " << std::endl;
+							std::cin >> choiceD;
+							std::cout << "Electric? Yes/No: " << std::endl;
+							std::cin >> choiceE;
 
-						Vehicle* ptrCarOne = new Car(choiceA, choiceB, choiceC, choiceD, choiceE);
-						a.addVehicles(ptrCarOne);
-						a.printVehicles(a.listGarage);
-					}
-						  break;
+							Vehicle* ptrCarOne = new Car(choiceA, choiceB, choiceC, choiceD, choiceE);
+							a.addVehicles(ptrCarOne);
+							a.printVehicles(a.listGarage);
+						}
+							  break;
 
-					case 2:
-					{
-						std::cout << "Regnr: " << std::endl;
-						std::cin >> choiceA;
-						std::cout << "Color: " << std::endl;
-						std::cin >> choiceB;
-						std::cout << "Number of Wheels: " << std::endl;
-						std::cin >> choiceC;
-						std::cout << "Model: " << std::endl;
-						std::cin >> choiceD;
-						std::cout << "Number of gears: " << std::endl;
-						std::cin >> choiceF;
-						Vehicle* ptrBikeOne = new Bicycle(choiceA, choiceB, choiceC, choiceD, choiceF);
-						a.addVehicles(ptrBikeOne);
-						a.printVehicles(a.listGarage);
-					}
-					break;
-					case 3:
-					{
-						std::cout << "Regnr: " << std::endl;
-						std::cin >> choiceA;
-						std::cout << "Color: " << std::endl;
-						std::cin >> choiceB;
-						std::cout << "Number of Wheels: " << std::endl;
-						std::cin >> choiceC;
-						std::cout << "Model: " << std::endl;
-						std::cin >> choiceD;
-						std::cout << "Number of gears: " << std::endl;
-						std::cin >> choiceF;
-						Vehicle* ptrMotorcycleOne = new Motorcycle(choiceA, choiceB, choiceC, choiceD, choiceF);
-						a.addVehicles(ptrMotorcycleOne);
-						a.printVehicles(a.listGarage);
-					}
+						case 2:
+						{
+							std::cout << "Regnr: " << std::endl;
+							std::cin >> choiceA;
+							std::cout << "Color: " << std::endl;
+							std::cin >> choiceB;
+							std::cout << "Number of Wheels: " << std::endl;
+							std::cin >> choiceC;
+							std::cout << "Model: " << std::endl;
+							std::cin >> choiceD;
+							std::cout << "Number of gears: " << std::endl;
+							std::cin >> choiceF;
+							Vehicle* ptrBikeOne = new Bicycle(choiceA, choiceB, choiceC, choiceD, choiceF);
+							a.addVehicles(ptrBikeOne);
+							a.printVehicles(a.listGarage);
+						}
+						break;
+						case 3:
+						{
+							std::cout << "Regnr: " << std::endl;
+							std::cin >> choiceA;
+							std::cout << "Color: " << std::endl;
+							std::cin >> choiceB;
+							std::cout << "Number of Wheels: " << std::endl;
+							std::cin >> choiceC;
+							std::cout << "Model: " << std::endl;
+							std::cin >> choiceD;
+							std::cout << "Number of gears: " << std::endl;
+							std::cin >> choiceF;
+							Vehicle* ptrMotorcycleOne = new Motorcycle(choiceA, choiceB, choiceC, choiceD, choiceF);
+							a.addVehicles(ptrMotorcycleOne);
+							a.printVehicles(a.listGarage);
+						}
 
-					break;
-					case 4:
-					{
-						std::cout << "Regnr: " << std::endl;
-						std::cin >> choiceA;
-						std::cout << "Color: " << std::endl;
-						std::cin >> choiceB;
-						std::cout << "Number of Wheels: " << std::endl;
-						std::cin >> choiceC;
-						std::cout << "Model: " << std::endl;
-						std::cin >> choiceD;
-						std::cout << "A/M? (Automatic or Manual) " << std::endl;
-						std::cin >> choiceE;
+						break;
+						case 4:
+						{
+							std::cout << "Regnr: " << std::endl;
+							std::cin >> choiceA;
+							std::cout << "Color: " << std::endl;
+							std::cin >> choiceB;
+							std::cout << "Number of Wheels: " << std::endl;
+							std::cin >> choiceC;
+							std::cout << "Model: " << std::endl;
+							std::cin >> choiceD;
+							std::cout << "A/M? (Automatic or Manual) " << std::endl;
+							std::cin >> choiceE;
 
-						Vehicle* ptrTruckOne = new Truck(choiceA, choiceB, choiceC, choiceD, choiceE);
-						a.addVehicles(ptrTruckOne);
-						a.printVehicles(a.listGarage);
-					}
-					break;
-					case 5:
-					{
-						std::cout << "Regnr: " << std::endl;
-						std::cin >> choiceA;
-						std::cout << "Color: " << std::endl;
-						std::cin >> choiceB;
-						std::cout << "Number of Wheels: " << std::endl;
-						std::cin >> choiceC;
-						std::cout << "Model: " << std::endl;
-						std::cin >> choiceD;
-						std::cout << "Number of seats: " << std::endl;
-						std::cin >> choiceF;
+							Vehicle* ptrTruckOne = new Truck(choiceA, choiceB, choiceC, choiceD, choiceE);
+							a.addVehicles(ptrTruckOne);
+							a.printVehicles(a.listGarage);
+						}
+						break;
+						case 5:
+						{
+							std::cout << "Regnr: " << std::endl;
+							std::cin >> choiceA;
+							std::cout << "Color: " << std::endl;
+							std::cin >> choiceB;
+							std::cout << "Number of Wheels: " << std::endl;
+							std::cin >> choiceC;
+							std::cout << "Model: " << std::endl;
+							std::cin >> choiceD;
+							std::cout << "Number of seats: " << std::endl;
+							std::cin >> choiceF;
 
-						Vehicle* ptrBusOne = new Bus(choiceA, choiceB, choiceC, choiceD, choiceF);
-						a.addVehicles(ptrBusOne);
-						a.printVehicles(a.listGarage);
+							Vehicle* ptrBusOne = new Bus(choiceA, choiceB, choiceC, choiceD, choiceF);
+							a.addVehicles(ptrBusOne);
+							a.printVehicles(a.listGarage);
 
-					}
-					default:
+						}
+						default:
+							break;
+						}
 						break;
 					}
+
+
 					break;
-				}
 
 
-				break;
-
-
-				case 2:																													//case 2
-				{
-
-					std::cout << "\n Type the RegNr of the Vehicle you want to remove: ";
-					std::cin >> search;
-					a.searchAndDestroy(a.listGarage, search);
-
-
-				}
-				break;
-
-
-				case 3:																													//case 3
-				{
-					std::cout << "\n 1 - Search for a RegNr: ";
-					std::cout << "\n 2 - Search for a color: ";
-					std::cout << "\n 3 - Search for number of wheels: ";
-					std::cout << "\n 4 - Search for a specific model: " << std::endl;
-
-					std::cin >> selectionThree;
-					if (std::cin.fail())
+					case 2:																													//case 2
 					{
-						std::cin.clear();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max());
-						std::cout << "Wrong! Enter a #!" << std::endl;
+
+						std::cout << "\n Type the RegNr of the Vehicle you want to remove: ";
+						std::cin >> search;
+						a.searchAndDestroy(a.listGarage, search);
+
+
+					}
+					break;
+
+
+					case 3:																													//case 3
+					{
+						std::cout << "\n 1 - Search for a RegNr: ";
+						std::cout << "\n 2 - Search for a color: ";
+						std::cout << "\n 3 - Search for number of wheels: ";
+						std::cout << "\n 4 - Search for a specific model: " << std::endl;
+
 						std::cin >> selectionThree;
-					}
+						if (std::cin.fail())
+						{
+							std::cin.clear();
+							std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+							std::cout << "Wrong! Enter a #!" << std::endl;
+
+						}
 
 
-					switch (selectionThree)
-					{
-					case 1:
-					{
-						std::cout << "Type RegNr: " << std::endl;
-						std::cin >> search;
+						switch (selectionThree)
+						{
+						case 1:
+						{
+							std::cout << "Type RegNr: " << std::endl;
+							std::cin >> search;
 
-						a.searchVehiclesRegNr(a.listGarage, search);
+							a.searchVehiclesRegNr(a.listGarage, search);
 
 
-					}
+						}
 
-					break;
+						break;
 
-					case 2:
-					{
-						std::cout << "Type color: " << std::endl;
-						std::cin >> search;
-						a.searchVehiclesColor(a.listGarage, search);
+						case 2:
+						{
+							std::cout << "Type color: " << std::endl;
+							std::cin >> search;
+							a.searchVehiclesColor(a.listGarage, search);
 
-					}
-					break;
+						}
+						break;
 
-					case 3:
-					{
-						std::cout << "Type number of wheels: " << std::endl;
-						std::cin >> numberSearch;
+						case 3:
+						{
+							std::cout << "Type number of wheels: " << std::endl;
+							std::cin >> numberSearch;
 
-						a.searchVehiclesWheels(a.listGarage, numberSearch);
+							a.searchVehiclesWheels(a.listGarage, numberSearch);
 
-					}
-					case 4:
-					{
-						std::cout << "Type model: " << std::endl;
-						std::cin >> search;
+						}
+						case 4:
+						{
+							std::cout << "Type model: " << std::endl;
+							std::cin >> search;
 
-						a.searchVehiclesModel(a.listGarage, search);
+							a.searchVehiclesModel(a.listGarage, search);
 
-					}
-					default:
+						}
+						default:
+							break;
+						}
 						break;
 					}
+
+
 					break;
-				}
-
-
-				break;
 
 
 
 
-				case 4:																							//Case 4
-				{
-
-					std::cout << "\n 1- List all Cars ";
-					std::cout << "\n 2- List all Bicycles ";
-					std::cout << "\n 3- List all Motorcycles ";
-					std::cout << "\n 4- List all Trucks ";
-					std::cout << "\n 5- List all Buses ";
-					std::cout << "\n 6- List all vehicles in the garage ";
-
-					std::cin >> selectionFour;
-					if (std::cin.fail())
+					case 4:																							//Case 4
 					{
-						std::cin.clear();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max());
-						std::cout << "Wrong! Enter a #!" << std::endl;
+
+						std::cout << "\n 1- List all Cars ";
+						std::cout << "\n 2- List all Bicycles ";
+						std::cout << "\n 3- List all Motorcycles ";
+						std::cout << "\n 4- List all Trucks ";
+						std::cout << "\n 5- List all Buses ";
+						std::cout << "\n 6- List all vehicles in the garage ";
+
 						std::cin >> selectionFour;
+						if (std::cin.fail())
+						{
+							std::cin.clear();
+							std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+							std::cout << "Wrong! Enter a #!" << std::endl;
+						}
+
+						switch (selectionFour)
+						{
+						case 1:
+						{
+							a.printAllCars(a.listGarage);
+
+						}
+						break;
+						case 2:
+						{
+							a.printAllBicycles(a.listGarage);
+
+						}
+						break;
+						case 3:
+						{
+							a.printAllMotorCycles(a.listGarage);
+
+						}
+						break;
+						case 4:
+						{
+							a.printAllTrucks(a.listGarage);
+
+						}
+						break;
+						case 5:
+						{
+							a.printAllBuses(a.listGarage);
+						}
+						break;
+						case 6:
+						{
+							a.printVehicles(a.listGarage);
+
+						}
+						default:
+							break;
+						}
 					}
 
-					switch (selectionFour)
-					{
-					case 1:
-					{
-						a.printAllCars(a.listGarage);
-
-					}
 					break;
-					case 2:
-					{
-						a.printAllBicycles(a.listGarage);
 
-					}
-					break;
-					case 3:
-					{
-						a.printAllMotorCycles(a.listGarage);
-
-					}
-					break;
-					case 4:
-					{
-						a.printAllTrucks(a.listGarage);
-
-					}
-					break;
 					case 5:
 					{
-						a.printAllBuses(a.listGarage);
+						if (garageCreated == false)
+						{
+							std::vector <Vehicle*> listGarage;
+							std::cout << "Number of parking spaces: " << std::endl;
+							std::cin >> maxLimit;
+							garageCreated = true;
+							std::cout << "Garage created " << std::endl;
+						}
+						else if (garageCreated == true)
+						{
+							std::cout << "Delete existing garage before creating a new one" << std::endl;
+
+						}
+
 					}
 					break;
 					case 6:
 					{
-						a.printVehicles(a.listGarage);
-
+						if (garageCreated == true)
+						{
+							a.destroy(a.listGarage);
+							garageCreated = false;
+							std::cout << "Garage Deleted" << std::endl;
+						}
+						else if (garageCreated == false)
+						{
+							std::cout << "No garage to delete" << std::endl;
+						}
 					}
-					default:
-						break;
-					}
-				}
-
-				break;
-
-				case 5:
-				{
-					if (garageCreated == false)
+					break;
+					case 7:
 					{
-						std::vector <Vehicle*> listGarage;
-						std::cout << "Number of parking spaces: " << std::endl;
-						std::cin >> maxLimit;
-						garageCreated = true;
-					}
-					else if (garageCreated == true)
-					{
-						std::cout << "Delete existing garage before creating a new one" << std::endl;
-
+						run = false;
+						std::cout << "Exiting..." << std::endl;
 					}
 
-				}
-				break;
-				case 6:
-				{
-					a.listGarage.clear();
-					garageCreated = false;
-					std::cout << "Garage Deleted" << std::endl;
-				}
-				break;
-				case 7:
-				{
-					run = false;
-					std::cout << "Exiting..." << std::endl;
-				}
+					break;
 
-				break;
+			
 
-				default:
-					std::cout << "Invalid selection" << std::endl;
-
+					}
 				}
 			}
 		}
-	}
+	
 /*
 Cout << “Find a vehicle in the garage by adding a parameter."
 << "\n1. To find with a registration number."
