@@ -212,7 +212,6 @@ public:
 		Garage() {}
 		Garage(std::string regNr, std::string color, int wheels, std::string inkModel, std::string inkElectric) {}
 	
-	
 		int vectorSize()
 
 		{
