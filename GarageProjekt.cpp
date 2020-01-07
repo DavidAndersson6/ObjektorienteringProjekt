@@ -52,7 +52,6 @@ protected:
 	std::string model;
 	std::string electric;
 public:
-	Car() {}
 	Car(std::string a, std::string b, int c, std::string d, std::string inkModel, std::string inkElectric) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Car";
@@ -96,7 +95,6 @@ protected:
 	int gears = 0;
 
 public:
-	Bicycle() {}
 	Bicycle(std::string a, std::string b, int c, std::string d, std::string inkModel, int inkGears) : Vehicle (a, b, c, d)
 	{
 		vehicleType = "Bicycle";
@@ -125,7 +123,6 @@ protected:
 	int gears = 0;
 
 public:
-	Motorcycle() {}
 	Motorcycle(std::string a, std::string b, int c, std::string d, std::string inkModel, int inkGears) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Motorcycle";
@@ -152,7 +149,6 @@ protected:
 	std::string automatic;
 
 public:
-	Truck() {}
 	Truck(std::string a, std::string b, int c, std::string d, std::string inkModel, std::string inkAutomatic) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Truck";
@@ -179,7 +175,6 @@ protected:
 	int seats = 0;
 
 public:
-	Bus() {}
 	Bus(std::string a, std::string b, int c, std::string d, std::string inkModel, int inkSeats) : Vehicle(a, b, c, d)
 	{
 		vehicleType = "Bus";
@@ -463,7 +458,7 @@ public:
 						
 						delete listGarage[i];
 
-					
+						counter--;
 						listGarage.erase(std::remove(listGarage.begin(), listGarage.end(), listGarage[i]), listGarage.end());
 						break;
 					}
